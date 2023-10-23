@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+
+    .toolbox {
+          width: 200px;
+          float: left;
+          
+          padding: 10px;
+          border: 1px solid #ddd;
+          background-color: #141313;
+        }
+        .button2 {
+          
+          background-color:#FFFFFF;
+          border:1px solid;
+          border-color: rgba(0, 255, 0, 0.5);  
+          background-color: #fafbfa;
+          border-color: rgba(0, 255, 0, 0.5);
+          color: rgb(19, 18, 18);
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          margin: 2px 2px;
+        cursor: pointer;
+        }
+        
+        .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          margin: 2px 2px;
+        cursor: pointer;
+        }
+        
+        
+        .element {
+          width: 100px;
+          height: 40px;
+          background-color: #101010;
+          color: #fff;
+          text-align: left;
+          justify-content: right;
+          line-height: 40px;
+          cursor: pointer;
+          margin: 10px;
+        }
+        .canvas {
+      width: 750px;
+      height: 550px;
+      float: left;
+      border: 1px solid #ddd;
+    }
+    
+   </style>
+</head>
+<body>
+  <div class="toolbox">
+    <header style="color:white;">Form designer</header>
+    <div class="element" draggable="true" <li><a href="#"><img src="layout1.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Layout</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="label.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Label</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="tabel box.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Text box</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="button.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Button</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="text box1.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Text box</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="check box.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Check box</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="radio box.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Radio button</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="tabel.jpg" width="25"><i class="fas fa-qrcode"></i></a></li>Table</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="navi.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Navigation</div>
+    <div class="element" draggable="true" <li><a href="#"><img src="img.jpg" width="20"><i class="fas fa-qrcode"></i></a></li>Image</div>
+
+
+    
+    
+  </div>
+  <div class="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+  </div>
+  <a href="#" class="button2">Preview</a>
+  <a href="#" class="button">Publish</a>  
+  
+  
+  <script>
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      var element = document.createElement("div");
+      element.innerHTML = data;
+      element.className = "element";
+      event.target.appendChild(element);
+    }
+  </script>
+</body>
+</html>
